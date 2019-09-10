@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "cross-env DEBUG=server,auto-wire,auto-wire-warning node -r esm bin/server.js"
+    "start": "cross-env DEBUG=server,auto-wire,auto-wire-warning nodemon -r esm bin/server.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -12,6 +12,7 @@
     "debug": "~2.6.9",
     "esm": "^3.2.25",
     "express": "~4.16.1",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "nodemon": "^1.19.2"
   }
 }

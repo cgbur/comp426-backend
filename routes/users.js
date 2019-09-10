@@ -1,11 +1,14 @@
 import express from "express";
+import {authorizeUser} from "../middleware/auth";
+import {userStore} from "../data/DataStore";
 
 const router = express.Router();
 
 /* GET users listing. */
-router.get('/', function (req, res, next) {
-    res.send({msg: "hello from users"});
+router.get('/user-status', authorizeUser, function (req, res, next) {
+    console.log(userStore.get());
+    res.send({result: 'all good', user: req.user, data: userStore.get('public')});
 });
 
 export default router;
-export const prefix = '/users';
+export const prefix = '/user';

@@ -2,19 +2,15 @@ import express from "express";
 import path from "path";
 import fs from "fs";
 import cookieParser from "cookie-parser";
-import logger from "morgan";
 import debug from 'debug';
-import Store from 'data-store';
 
-export const store = new Store({path: './data/example.json'});
-
+// Loggers used. Environment variables used to limit output
 const debugAutoWire = debug('auto-wire');
 const debugAutoWireWarning = debug('auto-wire-warning');
 
 const app = express();
 
-// Will throw a depreciated warning. Ignore.
-app.use(logger('dev'));
+app.use(require('morgan')('dev'));
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
