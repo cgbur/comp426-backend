@@ -1,0 +1,8 @@
+node_modules/
+.idea/misc.xml
+.idea/modules.xml
+.idea/jsLibraryMappings.xml
+.idea/runConfigurations/bin_www.xml
+.idea/untitled.iml
+.idea/vcs.xml
+.idea/workspace.xml

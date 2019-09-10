@@ -1,0 +1,17 @@
+{
+  "name": "comp426-backend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "cross-env DEBUG=server,auto-wire,auto-wire-warning node -r esm bin/server.js"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "cross-env": "^5.2.1",
+    "data-store": "^3.1.0",
+    "debug": "~2.6.9",
+    "esm": "^3.2.25",
+    "express": "~4.16.1",
+    "morgan": "~1.9.1"
+  }
+}
