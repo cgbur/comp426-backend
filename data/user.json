@@ -1,0 +1,16 @@
+{
+  "users": {
+    "kmp": {
+      "passwordHash": "$2b$10$FhfSDik1qSAlqjJ2yyCmp.T1NEnK/26UqNeW0AOfbKSpnGnKslND6",
+      "data": {
+        "role": 0
+      }
+    },
+    "chris": {
+      "passwordHash": "$2b$10$8tR/UH/QGSPgEM3ssWGG3O9QzBKwSh/MgtzL5nd4vb8AJpCAX87zK",
+      "data": {
+        "role": 0
+      }
+    }
+  }
+}

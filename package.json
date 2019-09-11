@@ -3,15 +3,19 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "cross-env DEBUG=server,auto-wire,auto-wire-warning nodemon -r esm bin/server.js"
+    "start": "cross-env DEBUG=server,auto-wire,auto-wire-warning,auto-data nodemon -r esm bin/server.js"
   },
   "dependencies": {
+    "bcrypt": "^3.0.6",
     "cookie-parser": "~1.4.4",
     "cross-env": "^5.2.1",
     "data-store": "^3.1.0",
     "debug": "~2.6.9",
+    "dotenv": "^8.1.0",
     "esm": "^3.2.25",
     "express": "~4.16.1",
+    "express-bearer-token": "^2.4.0",
+    "jsonwebtoken": "^8.5.1",
     "morgan": "~1.9.1",
     "nodemon": "^1.19.2"
   }

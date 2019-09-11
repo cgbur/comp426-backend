@@ -6,8 +6,18 @@
 import app from "../app";
 import debug0 from "debug";
 import http from "http";
+import fs from 'fs';
+import path from 'path';
 
 const debug = debug0('server');
+
+
+/**
+ * check to see if the secret exists
+ */
+checkSecret();
+
+
 /**
  * Get port from environment and store in Express.
  */
@@ -86,4 +96,21 @@ function onListening() {
         : 'port ' + addr.port;
 
     debug('Listening on ' + bind);
+}
+
+function checkSecret() {
+    if (!process.env.SECRET_KEY) {
+        debug('Environment variables SECRET_KEY not set.');
+        debug('Generating key and creating/updating .env.');
+        const filePath = path.join(__dirname, '..', '.env');
+        const buffer = require('crypto').randomBytes(48);
+        const token = buffer.toString('hex');
+        fs.appendFileSync(filePath, `SECRET_KEY=${token}`);
+        require('dotenv').config();
+        if (!process.env.SECRET_KEY){
+            console.error('Unable to generate a secret key. Quitting.');
+            process.exit();
+        }
+        debug(`Key generated. Do not share this secret key or commit the .env file to git.`)
+    }
 }

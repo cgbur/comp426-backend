@@ -3,6 +3,9 @@ import path from "path";
 import fs from "fs";
 import cookieParser from "cookie-parser";
 import debug from 'debug';
+import bearerToken from "express-bearer-token";
+
+require('dotenv').config();
 
 // Loggers used. Environment variables used to limit output
 const debugAutoWire = debug('auto-wire');
@@ -11,27 +14,28 @@ const debugAutoWireWarning = debug('auto-wire-warning');
 const app = express();
 
 app.use(require('morgan')('dev'));
+require('./data/DataStore');
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+app.use(bearerToken());
 app.use(cookieParser());
 
 // auto-wire routes. Must export default router, and a prefix.
-fs.readdir('./routes', (err, files) => {
-    files.forEach(file => {
-        const router = require(path.join(__dirname, './routes', file));
+const files = fs.readdirSync(path.join(__dirname, 'routes'));
+files.forEach(file => {
+    const router = require(path.join(__dirname, './routes', file));
 
-        if (!router.default) {
-            debugAutoWireWarning(`'${file}' did not have a default export. Skipped`);
-            return;
-        }
-        if (!router.prefix) {
-            debugAutoWireWarning(`'${file}' did not export a 'prefix' path. Defaulting to '/'`);
-        }
+    if (!router.router) {
+        debugAutoWireWarning(`'${file}' did not export a 'router'. Skipped`);
+        return;
+    }
+    if (!router.prefix) {
+        debugAutoWireWarning(`'${file}' did not export a 'prefix' path. Defaulting to '/'`);
+    }
 
-        app.use(router.prefix || '/', router.default);
-        debugAutoWire(`registered '${file}' to route '${router.prefix || '/'}'`);
-    });
+    app.use(router.prefix || '/', router.router);
+    debugAutoWire(`registered '${file}' to route '${router.prefix || '/'}'`);
 });
 
 export default app;
