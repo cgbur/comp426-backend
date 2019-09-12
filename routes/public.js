@@ -1,14 +1,31 @@
 import express from "express";
-import {parsePath} from "../middlewares/parse_path";
+import {parseGet} from "../middlewares/parse_get";
+import {parsePost} from "../middlewares/parse_post";
+import {parseDelete} from "../middlewares/parse_delete";
 
 export const router = express.Router();
 export const prefix = '/public';
 
-const {userStore} = require('../data/DataStore');
+const {publicStore} = require('../data/DataStore');
 
 
-/* GET users listing. */
-router.get('/*', parsePath, function (req, res, next) {
-    const data = req.storeMutate(userStore);
-    res.send({data})
+router.get('/*', parseGet, function (req, res, next) {
+    const result = req.handleGet(publicStore);
+    if (typeof result !== 'undefined') {
+        res.send({result})
+    }
+});
+
+router.post('/*', parsePost, function (req, res, next) {
+    const result = req.handlePost(publicStore);
+    if (typeof result !== 'undefined') {
+        res.send({result})
+    }
+});
+
+router.delete('/*', parseDelete, function (req, res, next) {
+    const result = req.handleDelete(publicStore);
+    if (typeof result !== 'undefined') {
+        res.send({result})
+    }
 });
