@@ -9,7 +9,23 @@
     "chris": {
       "passwordHash": "$2b$10$8tR/UH/QGSPgEM3ssWGG3O9QzBKwSh/MgtzL5nd4vb8AJpCAX87zK",
       "data": {
-        "role": 0
+        "role": [1,32,4,5,5,65,5,4,4]
+      }
+    }
+  },
+  "a": {
+    "b": {
+      "c": {
+        "d": {
+          "data": "hello"
+        },
+        "c": {
+          "d": {
+            "d": {
+              "data": "hello"
+            }
+          }
+        }
       }
     }
   }

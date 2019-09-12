@@ -15,5 +15,4 @@ export async function authorizeUser(req, res, next) {
     } catch (e) {
         res.status(401).send({err: 'Invalid or expired jwt token.'})
     }
-
 }
