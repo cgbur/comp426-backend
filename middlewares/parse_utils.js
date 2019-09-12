@@ -1,7 +1,16 @@
-export function parsePath(rawPath) {
-    let path = rawPath.split('/');
+export function parsePath(req) {
+    let path = req.path.split('/');
     const isIndexRequest = path[path.length - 1].length === 0;
     path = path.slice(1, path.length - (isIndexRequest ? 1 : 0)).join('.');
 
-    return {path, isIndexRequest};
+    path = decodeURIComponent(path);
+
+    let isUserRequest = false;
+    let userName = false;
+    if (req.baseUrl === '/user' && req.user.name) {
+        userName = req.user.name;
+        isUserRequest = true;
+        path = `${req.user.name}.${path}`;
+    }
+    return {path, isIndexRequest, isBaseRequest: req.path === '/', userName, isUserRequest};
 }

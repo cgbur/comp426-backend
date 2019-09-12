@@ -1,20 +1,27 @@
 import {parsePath} from "./parse_utils";
 
 export function parseDelete(req, res, next) {
-    if (req.path === '/') {
-        res.status(400).send({err: 'You are not allowed to directly delete to the root. Specify at least one level of key names.'});
-        return undefined;
+    let {path, isBaseRequest} = parsePath(req);
+
+    if (isBaseRequest) {
+        req.handleDelete = (store) => {
+            store.clear();
+            return {status: 'Successfully deleted entire store.'};
+        };
+        next();
+        return;
     }
-
-
-    let {path} = parsePath(req.path);
 
     req.handleDelete = (store) => {
         try {
+            if (typeof store.get(path) === 'undefined') {
+                res.status(400).send({err: `Resource doesn't exist`, path});
+                return undefined;
+            }
             store.del(path);
             return {path, status: 'delete successful'};
         } catch (e) {
-            res.status(500).send({err: 'Error parsing request. Check that you have formed your path correctly.'});
+            res.status(500).send({err: 'Error parsing request. Check that you have formed your path correctly.', path});
             return undefined;
         }
 

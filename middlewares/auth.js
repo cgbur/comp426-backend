@@ -1,6 +1,6 @@
 import * as jwt from "jsonwebtoken";
 
-export async function authorizeUser(req, res, next) {
+export async function authenticateUser(req, res, next) {
     if (!req.token) {
         return res.status(401).send({
             error: 'Authorization header not sent. This route requires the user to authenticate.' +
