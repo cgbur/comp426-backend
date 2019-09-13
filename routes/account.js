@@ -13,7 +13,7 @@ const {accountStore} = require('../data/DataStore');
 
 
 /* GET users listing. */
-router.post('/status', authenticateUser, function (req, res, next) {
+router.get('/status', authenticateUser, function (req, res, next) {
     res.send(
         {
             user: {

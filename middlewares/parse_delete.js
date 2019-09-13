@@ -1,10 +1,14 @@
 import {parsePath} from "./parse_utils";
 
 export function parseDelete(req, res, next) {
-    let {path, isBaseRequest} = parsePath(req);
+    let {path, isBaseRequest, isUserRequest, userName} = parsePath(req);
 
     if (isBaseRequest) {
         req.handleDelete = (store) => {
+            if (isUserRequest) {
+                const result = store.del(userName);
+                return {status: 'Successfully deleted user store.'};
+            }
             store.clear();
             return {status: 'Successfully deleted entire store.'};
         };

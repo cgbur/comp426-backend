@@ -6,6 +6,9 @@ export function parsePost(req, res, next) {
         return undefined;
     }
 
+    let method = req.body.type === 'merge' ? 'union' : 'set';
+
+
     let {path, isBaseRequest} = parsePath(req);
 
     if (isBaseRequest) {
@@ -16,7 +19,7 @@ export function parsePost(req, res, next) {
 
     req.handlePost = (store) => {
         try {
-            store.set(path, req.body.data);
+            store[method](path, req.body.data);
             return {posted: store.get(path), path};
         } catch (e) {
             res.status(500).send({err: 'Error parsing request. Check that you have formed your path correctly.', path});
