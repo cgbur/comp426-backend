@@ -17,7 +17,6 @@ npm run prod
 
 ## API
 ### `/account/`
-<p style="color:red">Hello</p>
 |URI| Method | description
 |:--:|:--:| -- |
 | `status` | `post`|  |
