@@ -16,11 +16,11 @@ debugAutoData(`Loading data stores. Use require() to import.`);
  */
 const files = fs.readdirSync(path.join(__dirname));
 files.forEach(file => {
-    if (file.endsWith('.json')) {
-        const dataName = `${file.split('.')[0]}Store`;
-        dataStores[dataName] = new Store({path: path.join(__dirname, file)});
-        debugAutoData(`Loaded '${file}' and exported as '${dataName}'`);
-    }
+  if (file.endsWith('.json')) {
+    const dataName = `${file.split('.')[0]}Store`;
+    dataStores[dataName] = new Store({path: path.join(__dirname, file)});
+    debugAutoData(`Loaded '${file}' and exported as '${dataName}'`);
+  }
 });
 
 module.exports = dataStores;

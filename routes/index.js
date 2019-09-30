@@ -4,8 +4,10 @@ export const router = express.Router();
 export const prefix = '/';
 
 
-/* GET home page. */
-router.get('/', function (req, res, next) {
-    res.send({status: 'You have reached the root!'})
+/**
+ * Hello world for the root
+ */
+router.get('/', function (req, res) {
+  res.send({status: 'You have reached the root!'})
 });
 

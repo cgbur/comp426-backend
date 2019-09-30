@@ -9,26 +9,29 @@ export const prefix = '/private';
 
 const {privateStore} = require('../data/DataStore');
 
-
+/**
+ * Every request to this route needs
+ * to be made from an authenticated user.
+ */
 router.use(authenticateUser);
 
-router.get('/*', parseGet, function (req, res, next) {
-    const result = req.handleGet(privateStore);
-    if (typeof result !== 'undefined') {
-        res.send({result})
-    }
+router.get('/*', parseGet, function (req, res) {
+  const result = req.handleGet(privateStore);
+  if (typeof result !== 'undefined') {
+    res.send({result})
+  }
 });
 
-router.post('/*', parsePost, function (req, res, next) {
-    const result = req.handlePost(privateStore);
-    if (typeof result !== 'undefined') {
-        res.send({result})
-    }
+router.post('/*', parsePost, function (req, res) {
+  const result = req.handlePost(privateStore);
+  if (typeof result !== 'undefined') {
+    res.send({result})
+  }
 });
 
-router.delete('/*', parseDelete, function (req, res, next) {
-    const result = req.handleDelete(privateStore);
-    if (typeof result !== 'undefined') {
-        res.send({result})
-    }
+router.delete('/*', parseDelete, function (req, res) {
+  const result = req.handleDelete(privateStore);
+  if (typeof result !== 'undefined') {
+    res.send({result})
+  }
 });

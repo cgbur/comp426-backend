@@ -42,19 +42,19 @@ server.on('listening', onListening);
  */
 
 function normalizePort(val) {
-    const port = parseInt(val, 10);
+  const port = parseInt(val, 10);
 
-    if (isNaN(port)) {
-        // named pipe
-        return val;
-    }
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
 
-    if (port >= 0) {
-        // port number
-        return port;
-    }
+  if (port >= 0) {
+    // port number
+    return port;
+  }
 
-    return false;
+  return false;
 }
 
 /**
@@ -62,27 +62,27 @@ function normalizePort(val) {
  */
 
 function onError(error) {
-    if (error.syscall !== 'listen') {
-        throw error;
-    }
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
 
-    const bind = typeof port === 'string'
-        ? 'Pipe ' + port
-        : 'Port ' + port;
+  const bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
 
-    // handle specific listen errors with friendly messages
-    switch (error.code) {
-        case 'EACCES':
-            console.error(bind + ' requires elevated privileges');
-            process.exit(1);
-            break;
-        case 'EADDRINUSE':
-            console.error(bind + ' is already in use');
-            process.exit(1);
-            break;
-        default:
-            throw error;
-    }
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
 }
 
 /**
@@ -90,27 +90,27 @@ function onError(error) {
  */
 
 function onListening() {
-    const addr = server.address();
-    const bind = typeof addr === 'string'
-        ? 'pipe ' + addr
-        : 'port ' + addr.port;
+  const addr = server.address();
+  const bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
 
-    debug('Listening on ' + bind);
+  debug('Listening on ' + bind);
 }
 
 function checkSecret() {
+  if (!process.env.SECRET_KEY) {
+    debug('Environment variables SECRET_KEY not set.');
+    debug('Generating key and creating/updating .env.');
+    const filePath = path.join(__dirname, '..', '.env');
+    const buffer = require('crypto').randomBytes(48);
+    const token = buffer.toString('hex');
+    fs.appendFileSync(filePath, `SECRET_KEY=${token}`);
+    require('dotenv').config();
     if (!process.env.SECRET_KEY) {
-        debug('Environment variables SECRET_KEY not set.');
-        debug('Generating key and creating/updating .env.');
-        const filePath = path.join(__dirname, '..', '.env');
-        const buffer = require('crypto').randomBytes(48);
-        const token = buffer.toString('hex');
-        fs.appendFileSync(filePath, `SECRET_KEY=${token}`);
-        require('dotenv').config();
-        if (!process.env.SECRET_KEY){
-            console.error('Unable to generate a secret key. Quitting.');
-            process.exit();
-        }
-        debug(`Key generated. Do not share this secret key or commit the .env file to git.`)
+      console.error('Unable to generate a secret key. Quitting.');
+      process.exit();
     }
+    debug(`Key generated. Do not share this secret key or commit the .env file to git.`)
+  }
 }

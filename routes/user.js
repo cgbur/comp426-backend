@@ -10,25 +10,29 @@ export const prefix = '/user';
 
 const {userStore} = require('../data/DataStore');
 
+/**
+ * Every request needs to be from a logged in user.
+ * Modify path prefixes each request with the user's name.
+ */
 router.use([authenticateUser, modifyUserPath]);
 
-router.get('/*', parseGet, function (req, res, next) {
-    const result = req.handleGet(userStore);
-    if (typeof result !== 'undefined') {
-        res.send({result})
-    }
+router.get('/*', parseGet, function (req, res) {
+  const result = req.handleGet(userStore);
+  if (typeof result !== 'undefined') {
+    res.send({result})
+  }
 });
 
-router.post('/*', parsePost, function (req, res, next) {
-    const result = req.handlePost(userStore);
-    if (typeof result !== 'undefined') {
-        res.send({result})
-    }
+router.post('/*', parsePost, function (req, res) {
+  const result = req.handlePost(userStore);
+  if (typeof result !== 'undefined') {
+    res.send({result})
+  }
 });
 
-router.delete('/*', parseDelete, function (req, res, next) {
-    const result = req.handleDelete(userStore);
-    if (typeof result !== 'undefined') {
-        res.send({result})
-    }
+router.delete('/*', parseDelete, function (req, res) {
+  const result = req.handleDelete(userStore);
+  if (typeof result !== 'undefined') {
+    res.send({result})
+  }
 });

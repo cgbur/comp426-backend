@@ -24,18 +24,18 @@ app.use(cookieParser());
 // auto-wire routes. Must export default router, and a prefix.
 const files = fs.readdirSync(path.join(__dirname, 'routes'));
 files.forEach(file => {
-    const router = require(path.join(__dirname, './routes', file));
+  const router = require(path.join(__dirname, './routes', file));
 
-    if (!router.router) {
-        debugAutoWireWarning(`'${file}' did not export a 'router'. Skipped`);
-        return;
-    }
-    if (!router.prefix) {
-        debugAutoWireWarning(`'${file}' did not export a 'prefix' path. Defaulting to '/'`);
-    }
+  if (!router.router) {
+    debugAutoWireWarning(`'${file}' did not export a 'router'. Skipped`);
+    return;
+  }
+  if (!router.prefix) {
+    debugAutoWireWarning(`'${file}' did not export a 'prefix' path. Defaulting to '/'`);
+  }
 
-    app.use(router.prefix || '/', router.router);
-    debugAutoWire(`registered '${file}' to route '${router.prefix || '/'}'`);
+  app.use(router.prefix || '/', router.router);
+  debugAutoWire(`registered '${file}' to route '${router.prefix || '/'}'`);
 });
 
 export default app;

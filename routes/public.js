@@ -9,23 +9,23 @@ export const prefix = '/public';
 const {publicStore} = require('../data/DataStore');
 
 
-router.get('/*', parseGet, function (req, res, next) {
-    const result = req.handleGet(publicStore);
-    if (typeof result !== 'undefined') {
-        res.send({result})
-    }
+router.get('/*', parseGet, function (req, res) {
+  const result = req.handleGet(publicStore);
+  if (typeof result !== 'undefined') {
+    res.send({result})
+  }
 });
 
-router.post('/*', parsePost, function (req, res, next) {
-    const result = req.handlePost(publicStore);
-    if (typeof result !== 'undefined') {
-        res.send({result})
-    }
+router.post('/*', parsePost, function (req, res) {
+  const result = req.handlePost(publicStore);
+  if (typeof result !== 'undefined') {
+    res.send({result})
+  }
 });
 
-router.delete('/*', parseDelete, function (req, res, next) {
-    const result = req.handleDelete(publicStore);
-    if (typeof result !== 'undefined') {
-        res.send({result})
-    }
+router.delete('/*', parseDelete, function (req, res) {
+  const result = req.handleDelete(publicStore);
+  if (typeof result !== 'undefined') {
+    res.send({result})
+  }
 });
