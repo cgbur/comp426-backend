@@ -16,10 +16,15 @@ npm run prod
 ```
 
 ## API
+The below details the out-of-the-box functionality of the server. It is encouraged to add custom routes if you wish to implement a more traditional API.
+
+By default, the server is separated into four separate routes: *account*, *public*, *private*, and *user*. The first of these that you will need to interact with are the `/account/` routes. These deal with creating new users, signing in, and verifying your current status.  The *public*, *private*, and *user* routes, on the other hand, are all simple object stores but with the following caveats.
+  - `/public/` is an object store where **any** user can perform CRUD operations.
+  - `/private/` is an object store where only **logged-in users** can perform CRUD operations
+  - `/user/` is an object store where every logged-in user has their own private subtree where other users cannot access.
+
+
 ### `/account/`
-|URI| Method | description
-|:--:|:--:| -- |
-| `status` | `post`|  |
 
 ## Structure
 
