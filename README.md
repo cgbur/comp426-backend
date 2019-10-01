@@ -43,12 +43,12 @@ http://localhost:3000/account/create
 Body contents:
 ```json
 {
-	"name": "chris",
-	"pass": "pass123",
-	"data": {
-		"role": 2,
-		"description": "Lazy..."
-	}
+  "name": "chris",
+  "pass": "pass123",
+  "data": {
+    "role": 2,
+    "description": "Lazy..."
+  }
 }
 ```
 Response:
@@ -139,11 +139,11 @@ Request and body:
 ```json
 http://localhost:3000/public/authors/
 {
-    "data": {
-        "Pierce Brown": {},
-        "Brandon Sanderson": {},
-        "Michael J. Sullivan": {}
-    }
+  "data": {
+    "Pierce Brown": {},
+    "Brandon Sanderson": {},
+    "Michael J. Sullivan": {}
+  }
 }
 ```
 But we forgot someone!
@@ -151,9 +151,9 @@ But we forgot someone!
 ```json
 http://localhost:3000/public/authors/Tolkien
 {
-	"data": {
-		"books": ["The Lord of the Rings"]
-	}
+  "data": {
+    "books": ["The Lord of the Rings"]
+  }
 }
 ```
 Notice how here we can use a path that might not exist yet and it will automatically create the data structure. There are multiple ways to do the same thing!
@@ -179,18 +179,18 @@ If we wanted to add some books to Pierce Brown and an age we could do the follow
 ```json
 http://localhost:3000/public/authors/Pierce Brown
 {
-	"data": {
-		"books": ["Red Rising", "Golden Son"],
-		"age": 31
-	}
+  "data": {
+    "books": ["Red Rising", "Golden Son"],
+    "age": 31
+  }
 }
 ```
 Now for the last step lets add "The Hobbit" to the list of books for Tolkien. You have probably realized that we will run into a problem. How can we append to the books array? One option is to make a GET request, add the book to the client side object, and make a new POST request with the modified data. The problem with this approach is that we find ourselves with a critical section problem. So we need to use the API method post as below with the `type` set to "merge":
 ```json
 http://localhost:3000/public/authors/Tolkien/books
 {
-	"data": ["The Hobbit"],
-	"type": "merge"
+  "data": ["The Hobbit"],
+  "type": "merge"
 }
 ```
 The final `public.json` looks like the following:
