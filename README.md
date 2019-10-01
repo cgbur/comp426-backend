@@ -23,9 +23,9 @@ By default, the server is separated into four separate routes: *account*, *publi
   - `/private/` is an object store where only **logged-in users** can perform CRUD operations
   - `/user/` is an object store where every logged-in user has their own private subtree where other users cannot access.
 
-We will first go over the routes that are related to *account* because they are in the format of a traditional API.
-
 > Notice that each of these four routes has a corresponding `.json` file in the `/data/` directory where their respective data is stored.
+
+We will first go over the routes that are related to *account* because they are in the format of a traditional API.
 
 ### `/account/`
 
