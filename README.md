@@ -15,6 +15,10 @@ npm run dev-static
 npm run prod
 ```
 
+- *dev-live-reload* runs the server with full level logging and will quick reload everytime a file is changed.
+- *dev-static* runs the server with full logging but without quick reload.
+- *prod* runs the server with limited logging.
+
 ## Structure
 
 ### Data
