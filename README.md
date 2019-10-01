@@ -256,5 +256,72 @@ The final `public.json` looks like the following:
 ```
 ### Get
 
+Now let's explore the GET method for our simple object stores. The way GET works is each key at each level of the object in the JSON is used in the URI to access data. 
+
+#### To `/` or not to `/`
+
+When making GET requests to this backend API we had to make some decisions on how to represent the object-store. There are some instances where you want to retrieve an object and all its descendants, and for performance reasons, there are a lot of cases where you simply want the keys at a given level. To solve this problem you will see some funny notation that is not a standard in... anything.
+
+- To get the keys at a certain path, add a `/` at the end of your request.
+- To get the actual objects and all children at a certain path, leave out the `/` at the end. 
+
+You will see some examples below as we explore our author data. 
+
+```json
+http://localhost:3000/public/
+{
+    "result": [
+        "authors"
+    ]
+}
+```
+```json
+http://localhost:3000/public/authors/
+{
+    "result": [
+        "Pierce Brown",
+        "Brandon Sanderson",
+        "Michael J. Sullivan",
+        "Tolkien"
+    ]
+}
+```
+Notice now when we leave out the `/` at the end of authors we get **all** the data. 
+```json
+http://localhost:3000/public/authors
+{
+    "result": {
+        "Pierce Brown": {
+            "books": [
+                "Red Rising",
+                "Golden Son"
+            ],
+            "age": 31
+        },
+        "Brandon Sanderson": {},
+        "Michael J. Sullivan": {},
+        "Tolkien": {
+            "books": [
+                "The Lord of the Rings",
+                "The Hobbit"
+            ]
+        }
+    }
+}
+```
+
+### DELETE
+
+Delete requests are not special in any way. Simply specify the location of the object you want to delete. For example, if we want to delete Tolkien:
+
+```json
+http://localhost:3000/public/authors/Tolkien
+{
+    "result": {
+        "path": "authors.Tolkien",
+        "status": "delete successful"
+    }
+}
+```
 
 
