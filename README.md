@@ -185,7 +185,7 @@ http://localhost:3000/public/authors/Pierce Brown
   }
 }
 ```
-#### "type" = "merge"
+##### "type": "merge"
 Now for the last step lets add "The Hobbit" to the list of books for Tolkien. You have probably realized that we will run into a problem. How can we append to the books array? One option is to make a GET request, add the book to the client side object, and make a new POST request with the modified data. The problem with this approach is that we find ourselves with a critical section problem. So we need to use the API method post as below with the **`type`** set to "merge":
 ```json
 http://localhost:3000/public/authors/Tolkien/books
