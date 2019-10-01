@@ -29,10 +29,6 @@ We will first go over the routes that are related to *account* because they are 
 
 ### `/account/`
 
-#### GET `/status`
-
-not implemented
-
 <details>
 	<summary><strong>POST `/create`</strong></summary>
 <p>
