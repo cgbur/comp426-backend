@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev-live-reload": "cross-env DEBUG=server,auto-wire,auto-wire-warning,auto-data nodemon -r esm bin/server.js",
+    "dev-live-reload": "cross-env DEBUG=server,auto-wire,auto-wire-warning,auto-data nodemon --ignore 'data/' -r esm bin/server.js",
     "dev-static": "cross-env DEBUG=server,auto-wire,auto-wire-warning,auto-data node -r esm bin/server.js",
     "prod": "cross-env DEBUG=server node -r esm bin/server.js"
   },

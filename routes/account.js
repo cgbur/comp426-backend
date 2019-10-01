@@ -52,12 +52,13 @@ router.post('/login', async function (req, res) {
     res.status(401).send({msg: 'Bad username or password.'});
     return;
   }
+  let userData = accountStore.get(`users.${name}.data`);
   const token = jwt.sign({
     name,
-    data: accountStore.get(`users.${name}.data`)
+    data: userData
   }, process.env.SECRET_KEY, {expiresIn: '30d'});
 
-  res.send({jwt: token});
+  res.send({jwt: token, data: userData, name});
 });
 
 /**
