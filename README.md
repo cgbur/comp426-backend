@@ -258,7 +258,7 @@ The final `public.json` looks like the following:
 
 Now let's explore the GET method for our simple object stores. The way GET works is each key at each level of the object in the JSON is used in the URI to access data. 
 
-##### To / or not to /
+#### To `/` or not to `/`
 
 When making GET requests to this backend API we had to make some decisions on how to represent the object-store. There are some instances where you want to retrieve an object and all its descendants, and for performance reasons, there are a lot of cases where you simply want the keys at a given level. To solve this problem you will see some funny notation that is not a standard in... anything.
 
@@ -309,4 +309,19 @@ http://localhost:3000/public/authors
     }
 }
 ```
+
+### DELETE
+
+Delete requests are not special in any way. Simply specify the location of the object you want to delete. For example, if we want to delete Tolkien:
+
+```json
+http://localhost:3000/public/authors/Tolkien
+{
+    "result": {
+        "path": "authors.Tolkien",
+        "status": "delete successful"
+    }
+}
+```
+
 
