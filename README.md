@@ -23,8 +23,117 @@ By default, the server is separated into four separate routes: *account*, *publi
   - `/private/` is an object store where only **logged-in users** can perform CRUD operations
   - `/user/` is an object store where every logged-in user has their own private subtree where other users cannot access.
 
+We will first go over the routes that are related to *account* because they are in the format of a traditional API.
+
+> Notice that each of these four routes has a corresponding `.json` file in the `/data/` directory where their respective data is stored.
 
 ### `/account/`
+
+#### GET `/status`
+
+not implemented
+
+<details>
+  <summary>**POST `/create`**</summary>
+<p>
+
+- Body requires: `name`, `pass`
+- Body optional: `data` which can be anything.
+
+## example:
+```
+http://localhost:3000/account/create
+```
+Body contents:
+```json
+{
+	"name": "chris",
+	"pass": "pass123",
+	"data": {
+		"role": 2,
+		"description": "Lazy..."
+	}
+}
+```
+Response:
+```json
+{
+    "data": {
+        "data": {
+            "role": 2,
+            "description": "Lazy..."
+        }
+    },
+    "status": "Successfully made account"
+}
+```
+</p>
+</details>
+
+
+<details>
+  <summary>**POST `/login`**</summary>
+<p>
+
+- Body requires: `name`, `pass`
+
+## example:
+```
+http://localhost:3000/account/login
+```
+Body contents:
+```json
+{
+	"name": "chris",
+	"pass": "pass123"
+}
+```
+Response:
+```json
+{
+    "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiY2hyaXMiLCJkYXRhIjp7InJvbGUiOjIsImRlc2NyaXB0aW9uIjoiTGF6eS4uLiJ9LCJpYXQiOjE1Njk5MDE4OTcsImV4cCI6MTU3MjQ5Mzg5N30.DRZZQw2Hfex7Z7E_SAcgtUfRk1C-wVmauyMXqG3SrB0",
+    "data": {
+        "role": 2,
+        "description": "Lazy..."
+    },
+    "name": "chris"
+}
+```
+</p>
+</details>
+
+
+<details>
+  <summary>**GET `/status`**</summary>
+<p>
+
+- Authorization header is required with a value of the JWT token that was generated for you on a successful login. The server is expecting a [bearer token](https://oauth.net/2/bearer-tokens/) with the JWT.
+
+## example:
+```
+http://localhost:3000/account/status
+```
+Authorization header:
+```json
+Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiY2hyaXMiLCJkYXRhIjp7InJvbGUiOjIsImRlc2NyaXB0aW9uIjoiTGF6eS4uLiJ9LCJpYXQiOjE1Njk5MDE4OTcsImV4cCI6MTU3MjQ5Mzg5N30.DRZZQw2Hfex7Z7E_SAcgtUfRk1C-wVmauyMXqG3SrB0
+```
+Response:
+```json
+{
+{
+    "user": {
+        "name": "chris",
+        "data": {
+            "role": 2,
+            "description": "Lazy..."
+        }
+    }
+}
+```
+</p>
+</details>
+
+
 
 ## Structure
 
