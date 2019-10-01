@@ -34,7 +34,7 @@ We will first go over the routes that are related to *account* because they are 
 not implemented
 
 <details>
-  <summary>**POST `/create`**</summary>
+	<summary><strong>POST `/create`</strong></summary>
 <p>
 
 - Body requires: `name`, `pass`
@@ -72,7 +72,9 @@ Response:
 
 
 <details>
-  <summary>**POST `/login`**</summary>
+	
+  <summary><strong>POST `/login`</strong></summary>
+  
 <p>
 
 - Body requires: `name`, `pass`
@@ -102,9 +104,8 @@ Response:
 </p>
 </details>
 
-
 <details>
-  <summary>**GET `/status`**</summary>
+	<summary><strong>GET `/status`</strong></summary>
 <p>
 
 - Authorization header is required with a value of the JWT token that was generated for you on a successful login. The server is expecting a [bearer token](https://oauth.net/2/bearer-tokens/) with the JWT.
@@ -119,7 +120,6 @@ Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiY2hyaXMiLCJkYXRhIjp7InJv
 ```
 Response:
 ```json
-{
 {
     "user": {
         "name": "chris",
