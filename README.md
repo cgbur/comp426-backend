@@ -30,7 +30,7 @@ We will first go over the routes that are related to *account* because they are 
 ### `/account/`
 
 <details>
-	<summary><strong>POST `/create`</strong></summary>
+	<summary><strong>POST <code>/create</code></strong></summary>
 <p>
 
 - Body requires: `name`, `pass`
@@ -69,7 +69,7 @@ Response:
 
 <details>
 	
-  <summary><strong>POST `/login`</strong></summary>
+  <summary><strong>POST <code>/login</code></strong></summary>
   
 <p>
 
@@ -101,7 +101,7 @@ Response:
 </details>
 
 <details>
-	<summary><strong>GET `/status`</strong></summary>
+	<summary><strong>GET <code>/status</code></strong></summary>
 <p>
 
 - Authorization header is required with a value of the JWT token that was generated for you on a successful login. The server is expecting a [bearer token](https://oauth.net/2/bearer-tokens/) with the JWT.
