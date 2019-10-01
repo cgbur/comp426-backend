@@ -129,6 +129,92 @@ Response:
 </p>
 </details>
 
+Remember that the other routes that come with the out-of-the-box configuration are simple object stores. This quick walkthrough of using the API is only going to cover using the `/public/` endpoints. The same will apply for `/private/` and `/user/` as well. 
+
+### Post
+Let's start by adding some data to the `publicStore`. Whenever we want to add data to one of these object stores we are going to use the HTTP POST method. The body of the POST should always have a `data` key which is the JSON content you want to POST to a given route. 
+
+Let's add some authors to our public datastore.
+Request and body:
+```json
+http://localhost:3000/public/authors/
+{
+    "data": {
+        "Pierce Brown": {},
+        "Brandon Sanderson": {},
+        "Michael J. Sullivan": {}
+    }
+}
+```
+But we forgot someone!
+
+```json
+http://localhost:3000/public/authors/Tolkien
+{
+	"data": {
+		"books": ["The Lord of the Rings"]
+	}
+}
+```
+Notice how here we can use a path that might not exist yet and it will automatically create the data structure. There are multiple ways to do the same thing!
+
+
+
+This will result in `public.json` looking like the following:
+```json
+{
+  "authors": {
+    "Pierce Brown": {},
+    "Brandon Sanderson": {},
+    "Michael J. Sullivan": {},
+    "Tolkien": {
+      "books": [
+        "The Lord of the Rings"
+      ]
+    }
+  }
+}
+```
+If we wanted to add some books to Pierce Brown and an age we could do the following:
+```json
+http://localhost:3000/public/authors/Pierce Brown
+{
+	"data": {
+		"books": ["Red Rising", "Golden Son"],
+		"age": 31
+	}
+}
+```
+Now for the last step lets add "The Hobbit" to the list of books for Tolkien. You have probably realized that we will run into a problem. How can we append to the books array? One option is to make a GET request, add the book to the client side object, and make a new POST request with the modified data. The problem with this approach is that we find ourselves with a critical section problem. So we need to use the API method post as below with the `type` set to "merge":
+```json
+http://localhost:3000/public/authors/Tolkien/books
+{
+	"data": ["The Hobbit"],
+	"type": "merge"
+}
+```
+The final `public.json` looks like the following:
+```json
+{
+  "authors": {
+    "Pierce Brown": {
+      "books": [
+        "Red Rising",
+        "Golden Son"
+      ],
+      "age": 31
+    },
+    "Brandon Sanderson": {},
+    "Michael J. Sullivan": {},
+    "Tolkien": {
+      "books": [
+        "The Lord of the Rings",
+        "The Hobbit"
+      ]
+    }
+  }
+}
+```
 
 
 ## Structure
