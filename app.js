@@ -2,6 +2,7 @@ import express from "express";
 import path from "path";
 import fs from "fs";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 import debug from 'debug';
 import bearerToken from "express-bearer-token";
 
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(bearerToken());
 app.use(cookieParser());
+app.use(cors());
 
 // auto-wire routes. Must export default router, and a prefix.
 const files = fs.readdirSync(path.join(__dirname, 'routes'));

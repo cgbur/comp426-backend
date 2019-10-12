@@ -10,6 +10,7 @@
   "dependencies": {
     "bcrypt": "^3.0.6",
     "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
     "cross-env": "^5.2.1",
     "data-store": "^3.1.0",
     "debug": "~2.6.9",
