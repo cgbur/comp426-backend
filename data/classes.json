@@ -1,0 +1,26 @@
+{
+    "classes": { 
+        "COMP110": {
+            "department": "COMP",
+            "major": {"COMP": 0},
+            "number" : "110",
+            "prerequisites":{},
+            "description":"Introductory Computer Science class.",
+            "difficulty": "beginner",
+            "semester": "F19",
+            "instructor": "Kris Jordan", 
+            "isActive": true
+        },
+        "COMP116": {
+            "department": "COMP",
+            "major": {"COMP": 0},
+            "number" : 116,
+            "prerequisites": {},
+            "description": "Introductory scientific computing class primarily using Python for data analysis",
+            "difficulty": "beginner",
+            "semester": "F19",
+            "instructor": "Gary Bishop",
+            "isActive": true
+        }
+    }
+}
