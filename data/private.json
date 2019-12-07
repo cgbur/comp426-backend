@@ -6,7 +6,7 @@
         "COMP": 0
       },
       "number": 110,
-      "prerequisites": [],
+      "prerequisites": ["MATH129P,MATH231,MATH241,COMP101"],
       "name": "Introduction to Computer Science",
       "description": "Introductory Computer Science class.",
       "difficulty": "beginner",
@@ -98,6 +98,49 @@
       "semester": "F19",
       "instructor": "David Plaisted",
       "isActive": true
+    },
+    "MATH231": {
+      "department": "MATH",
+      "major": {
+        "COMP": 0
+      },
+      "number": 231,
+      "prerequisites": [],
+      "name": "Calculus of Functions of One Variable I",
+      "description": "Limits, derivatives, and integrals of functions of one variable.",
+      "difficulty": "beginner",
+      "semester": "F19",
+      "instructor": "Elizabeth McLaughlin",
+      "isActive": true
+    },
+    "MATH232": {
+      "department": "MATH",
+      "major": {
+        "COMP": 0
+      },
+      "number": 232,
+      "prerequisites": ["MATH231"],
+      "name": "Calculus of Functions of One Variable II",
+      "description": "Calculus of the elementary transcendental functions, techniques of integration, indeterminate forms, Taylor's formula, infinite series.",
+      "difficulty": "intermediate",
+      "semester": "F19",
+      "instructor": "Elizabeth McLaughlin",
+      "isActive": true
+    },
+    "MATH233": {
+      "department": "MATH",
+      "major": {
+        "COMP": 0
+      },
+      "number": 233,
+      "prerequisites": ["MATH232"],
+      "name": "Calculus of Functions of Several Variables",
+      "description": "Vector algebra, solid analytic geometry, partial derivatives, multiple integrals.",
+      "difficulty": "advanced",
+      "semester": "F19",
+      "instructor": "Elizabeth McLaughlin",
+      "isActive": true
     }
+
   }
 }
