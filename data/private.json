@@ -85,6 +85,120 @@
       "instructor": "Montek Singh",
       "isActive": true
     },
+    "COMP426": {
+      "department": "COMP",
+      "major": {
+        "COMP": 0
+      },
+      "number": 426,
+      "prerequisites": ["COMP401", "COMP410"],
+      "name": "Modern Web Programming",
+      "description": "Developing applications for the World Wide Web including both client-side and server-side programming. Emphasis on Model-View-Controller architecture, AJAX, RESTful Web services, and database interaction.",
+      "difficulty": "intermediate",
+      "semester": "F19",
+      "instructor": "Ketan Mayer-Patel",
+      "isActive": true
+    },
+    "COMP431": {
+      "department": "COMP",
+      "major": {
+        "COMP": 0
+      },
+      "number": 431,
+      "prerequisites": ["COMP401", "COMP410", "COMP411"],
+      "name": "Internet Services and Protocols",
+      "description": "Application-level protocols HTTP, SMTP, FTP, transport protocols TCP and UDP, and the network-level protocol IP. Internet architecture, naming, addressing, routing, and DNS. Sockets programming. Physical-layer technologies. Ethernet, ATM, and wireless.",
+      "difficulty": "intermediate",
+      "semester": "F19",
+      "instructor": "Jasleen Kaur",
+      "isActive": true
+    },
+    "COMP433": {
+      "department": "COMP",
+      "major": {
+        "COMP": 0
+      },
+      "number": 433,
+      "prerequisites": ["COMP401", "COMP410", "COMP411"],
+      "name": "Mobile Computing Systems",
+      "description": "Principles of mobile applications, mobile OS, mobile networks, and embedded sensor systems. Coursework includes programming assignments, reading from recent research literature, and a semester long project on a mobile computing platform (e.g., Android, Arduino, iOS, etc.).",
+      "difficulty": "intermediate",
+      "semester": "F19",
+      "instructor": "TBD",
+      "isActive": true
+    },
+    "COMP435": {
+      "department": "COMP",
+      "major": {
+        "COMP": 0
+      },
+      "number": 435,
+      "prerequisites": ["COMP401", "COMP410", "COMP411"],
+      "name": "Computer Security Concepts",
+      "description": "Introduction to topics in computer security including confidentiality, integrity, availability, authentication policies, basic cryptography and cryptographic protocols, ethics, and privacy. A student may not receive credit for this course after receiving credit for COMP 535.",
+      "difficulty": "intermediate",
+      "semester": "F19",
+      "instructor": "TBD",
+      "isActive": true
+    },
+    "COMP447": {
+      "department": "COMP",
+      "major": {
+        "COMP": 0
+      },
+      "number": 447,
+      "prerequisites": ["MATH232", "PHYS116,PHYS118"],
+      "name": "Quantum Computing",
+      "description": "Recommended preparation, some knowledge of basic linear algebra. An introduction to quantum computing. Basic math and quantum mechanics necessary to understand the operation of quantum bits. Quantum gates, circuits, and algorithms, including Shor's algorithm for factoring and Grover's search algorithm. Entanglement and error correction. Quantum encryption, annealing, and simulation. Brief discussion of technologies.",
+      "difficulty": "intermediate",
+      "semester": "F19",
+      "instructor": "TBD",
+      "isActive": true
+    },
+    "COMP455": {
+      "department": "COMP",
+      "major": {
+        "COMP": 0
+      },
+      "number": 455,
+      "prerequisites": ["COMP110,COMP116,COMP401", "COMP283,MATH381"],
+      "name": "Models of Languages and Computation",
+      "description": "Introduction to the theory of computation. Finite automata, regular languages, pushdown automata, context-free languages, and Turing machines. Undecidable problems.",
+      "difficulty": "intermediate",
+      "semester": "F19",
+      "instructor": "TBD",
+      "isActive": true
+    },
+    "COMP475": {
+      "department": "COMP",
+      "major": {
+        "COMP": 0
+      },
+      "number": 475,
+      "prerequisites": ["COMP401", "COMP410", "COMP411"],
+      "name": "2D Computer Graphics",
+      "description": "Fundamentals of modern software 2D graphics; geometric primitives, scan conversion, clipping, transformations, compositing, texture sampling. Advanced topics may include gradients, antialiasing, filtering, parametric curves, and geometric stroking.",
+      "difficulty": "intermediate",
+      "semester": "F19",
+      "instructor": "TBD",
+      "isActive": true
+    },
+    "COMP486": {
+      "department": "COMP",
+      "major": {
+        "COMP": 0
+      },
+      "number": 486,
+      "prerequisites": ["COMP110,COMP116,COMP410"],
+      "name": "Applications of Natural Language Processing",
+      "description": "Study of applications of natural language processing techniques and the representations and processes needed to support them. Topics include interfaces, text retrieval, machine translation, speech processing, and text generation.",
+      "difficulty": "intermediate",
+      "semester": "F19",
+      "instructor": "TBD",
+      "isActive": true
+    },
+
+
     "COMP550": {
       "department": "COMP",
       "major": {
