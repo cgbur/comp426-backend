@@ -1,2 +1,18 @@
 {
+    "DAGs": {
+        "1": {
+            "name": "Making a youtube Playlist",
+            "descritpion": "Learn how to link your favorite radiohead songs",
+            "maker": "Shai the incredible",
+            "DAG": "JSONSTRING",
+            "date": 2019
+        },
+        "2": {
+            "name": "Making a youtube Playlist",
+            "descritpion": "Learn how to link your favorite radiohead songs",
+            "maker": "Shai the incredible",
+            "DAG": "JSONSTRING",
+            "date": 2019
+        } 
+    }
 }

@@ -1,5 +1,6 @@
 import express from "express";
-import {authenticateUser} from "../middlewares/auth";
+import {authenticateUser} 
+from "../middlewares/auth";
 import bcrypt from 'bcryptjs';
 import {userFilter} from "../filters/user";
 import jwt from 'jsonwebtoken';
