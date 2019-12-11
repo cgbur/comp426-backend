@@ -71,6 +71,7 @@ router.post('/create', function (req, res) {
     res.status(401).send({msg: 'Expected a payload of name and pass.'});
     return;
   }
+  console.log(req.body);
 
   const name = req.body.name.toLowerCase();
   const pass = req.body.pass;
@@ -97,3 +98,10 @@ async function checkUser(username, password) {
   const user = accountStore.get(`users.${username}`);
   return await bcrypt.compare(password, user.passwordHash);
 }
+
+router.get('/', function (req, res) {
+  res.send({
+    status: 'accounts',
+    fuck: 'Fuck off'
+  })
+});
