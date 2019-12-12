@@ -1,2 +1,26 @@
 {
+  "hlkjasdf-qaelwfb": {
+    "hlkjasdf\\-qaelwfb": {
+      "firstname": "hlkjasdf",
+      "lastname": "qaelwfb",
+      "email": "qwefhl",
+      "DAGs": {}
+    }
+  },
+  "big-daddy": {
+    "Big\\-daddy": {
+      "firstname": "Big",
+      "lastname": "daddy",
+      "email": "1242",
+      "DAGs": {}
+    }
+  },
+  "small-daddy": {
+    "small\\-daddy": {
+      "firstname": "small",
+      "lastname": "daddy",
+      "email": "daddy@hotmail.com",
+      "DAGs": {}
+    }
+  }
 }

@@ -23,9 +23,9 @@ router.post('/*', parsePost, function (req, res) {
   }
 });
 
-router.delete('/*', parseDelete, function (req, res) {
+/*router.delete('/*', parseDelete, function (req, res) {
   const result = req.handleDelete(publicStore);
   if (typeof result !== 'undefined') {
     res.send({result})
-  }
-}); 
+}
+}); */

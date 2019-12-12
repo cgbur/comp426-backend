@@ -6,6 +6,41 @@
         "role": "user",
         "email": "12"
       }
+    },
+    "asdf-asdf": {
+      "passwordHash": "$2a$10$1fyIqSF9JVpO1o5reCdzMegsQX2TM72lJJrvyF.sPLhfLlGjD2.fu",
+      "data": {
+        "role": "user",
+        "email": "asdf"
+      }
+    },
+    "kda-asdf": {
+      "passwordHash": "$2a$10$vQpOoWpU3MVXyk8LWkENJuoQzv8.QYGqFFb8kz.ZbFNh.ccnH0Zai",
+      "data": {
+        "role": "user",
+        "email": "wer"
+      }
+    },
+    "hlkjasdf-qaelwfb": {
+      "passwordHash": "$2a$10$nhmRV1pB/NJ1PhCfkiBcmulsp/8lymn/9GiDMnMm/iGWF7xJ81p7y",
+      "data": {
+        "role": "user",
+        "email": "qwefhl"
+      }
+    },
+    "big-daddy": {
+      "passwordHash": "$2a$10$hzarH2WmxQlI1zBUt6Mn7OijEeiAf5ueRSNwth8kTAOGpIdk5voOK",
+      "data": {
+        "role": "user",
+        "email": "1242"
+      }
+    },
+    "small-daddy": {
+      "passwordHash": "$2a$10$SsUiW.K0zmuzItp9FJ2SDeV9WIhXn82dTB5G8bhfV9ZRE96fXhlIe",
+      "data": {
+        "role": "user",
+        "email": "daddy@hotmail.com"
+      }
     }
-  } 
+  }
 }
