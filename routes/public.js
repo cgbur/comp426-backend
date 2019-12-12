@@ -16,7 +16,7 @@ router.get('/*', parseGet, function (req, res) {
   }
 });
 
-/*router.post('/*', parsePost, function (req, res) {
+router.post('/*', parsePost, function (req, res) {
   const result = req.handlePost(publicStore);
   if (typeof result !== 'undefined') {
     res.send({result})
@@ -28,4 +28,4 @@ router.delete('/*', parseDelete, function (req, res) {
   if (typeof result !== 'undefined') {
     res.send({result})
   }
-}); */
+}); 
